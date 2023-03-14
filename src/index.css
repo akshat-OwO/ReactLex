@@ -1,0 +1,18 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --_font: 'Times New Roman', Times, serif;
+  --_size: 1.5rem;
+  --_hue: 274;
+
+  /* light mode */
+  --bg-light: var(--hue) 0 100;
+  --txt-light: var(--hue) 0 0;
+  --accent-light: var(--hue) 93 62;
+}
