@@ -1,18 +1,122 @@
+/* root variables */
+:root {
+  --_font: serif;
+  --_size: 1.5rem;
+  --_hue: 274;
+  
+  /* light mode */
+  --bg-light: var(--_hue) 0% 100%;
+  --txt-light: var(--_hue) 0% 0%;
+  --accent-light: var(--_hue) 93% 62%;
+
+  /* dark mode */
+  --bg-dark: var(--_hue) 0% 0%;
+  --txt-dark: var(--_hue) 0% 100%;
+  --accent-dark: var(--_hue) 93% 62%;
+}
+
+/* color-scheme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: var(--bg-dark);
+    --txt: var(--txt-dark);
+    --accent: var(--accent-dark);
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: var(--bg-light);
+    --txt: var(--txt-light);
+    --accent: var(--accent-light);
+    color-scheme: light;
+  }
+}
+
+[color-scheme="dark"] {
+  --bg: var(--bg-dark);
+  --txt: var(--txt-dark);
+  --accent: var(--accent-dark);
+  color-scheme: dark;
+}
+
+[color-scheme="light"] {
+  --bg: var(--bg-light);
+  --txt: var(--txt-light);
+  --accent: var(--accent-light);
+  color-scheme: light;
+}
+
+/* stripping defaults */
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: var(--_font);
 }
 
-:root {
-  --_font: 'Times New Roman', Times, serif;
-  --_size: 1.5rem;
-  --_hue: 274;
+/* disabling icon pointer events */
+.icon {
+  pointer-events: none;
+}
 
-  /* light mode */
-  --bg-light: var(--hue) 0 100;
-  --txt-light: var(--hue) 0 0;
-  --accent-light: var(--hue) 93 62;
+/* navbar styles */
+.navbar {
+  padding: var(--_size);
+}
+
+.navbar, .customiser {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: hsl(var(--bg));
+  color: hsl(var(--txt));
+}
+
+.customiser {
+  gap: calc(var(--_size));
+}
+
+/* font-toggle */
+.fonts-selector {
+  position: relative;
+  font-size: var(--_size);
+}
+
+.fonts-selector .fonts {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--_size) * .3);
+  cursor: pointer;
+}
+
+.fonts-selector .font-toggle {
+  position: absolute;
+  width: calc(var(--_size) * 5.5);
+  height: calc(var(--_size) * 3);
+  padding: calc(var(--_size) * .5)  calc(var(--_size) * 0);
+  top: var(--_size);
+  border-radius: .5em;
+  box-shadow: .1em .1em .2em hsl(var(--txt));
+}
+
+.fonts-selector .font-toggle p {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: calc(var(--_size) * .3);
+}
+
+.fonts-selector .font-toggle p span {
+  pointer-events: none;
+}
+
+/* mode-toggle */
+.colorMode-selector {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--_size) * .3);
 }
