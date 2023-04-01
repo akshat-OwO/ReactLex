@@ -10,8 +10,8 @@ const Navbar = () => {
         <nav className="navbar">
             <BookOpenIcon width={32} className='icon logo' />
             <div className="customiser">
-                <FontSelection />
                 <ColorModeSelection />
+                <FontSelection />
             </div>
         </nav>
     );
